@@ -33,13 +33,15 @@ public class Lever : MonoBehaviour
     {
         ForwardBackwardTilt = JoyStickHandle.transform.rotation.x;
         {
-            if (ForwardBackwardTilt < 350 && ForwardBackwardTilt > 290)
+            if (ForwardBackwardTilt < 360 && ForwardBackwardTilt > 290)
             {
                 ForwardBackwardTilt = Mathf.Abs(ForwardBackwardTilt-360);
+                Debug.Log("Reading Angle from lever: " + ForwardBackwardTilt);
                 return ForwardBackwardTilt;
             }
-            else if (ForwardBackwardTilt> 5 && ForwardBackwardTilt < 74)
+            else if (ForwardBackwardTilt> 0 && ForwardBackwardTilt < 74)
             {
+                Debug.Log("Reading Angle from lever: " + ForwardBackwardTilt);
                 return ForwardBackwardTilt;
             }
             Debug.Log("roughly zero");
