@@ -55,7 +55,7 @@ public class Lever : MonoBehaviour
     {
         if ((other.CompareTag(PlayerHandTag)))
         {
-            JoyStickHandle.transform.LookAt(other.transform.position, JoyStickHandle.transform.up);
+            transform.LookAt(other.transform.position, transform.up);
         }
     }
 }
