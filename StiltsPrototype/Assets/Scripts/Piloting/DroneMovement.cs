@@ -32,12 +32,17 @@ public class DroneMovement : MonoBehaviour
 
     private void calculateForwardBackwardMovement()
     {
+        Vector3 debugVector = Vector3.forward * ForwardMovementLever.getTilt() * Time.deltaTime * BaseMoveSpeed;
         Drone.transform.position += Vector3.forward  * ForwardMovementLever.getTilt() * Time.deltaTime * BaseMoveSpeed;
+        Debug.Log("forward backward lever value reads:" + ForwardMovementLever.getTilt() + "drone transform change should add:" );
     }
 
     private void calculateRotationalMovement()
     {
+
         Drone.transform.Rotate(Vector3.forward * RotationalLever.getTilt() * Time.deltaTime * BaseTurnSpeed);
+        Vector3 DebugVector = Vector3.forward * RotationalLever.getTilt() * Time.deltaTime * BaseTurnSpeed;
+        Debug.Log("value being added to drone quaternion = "+DebugVector);
     }
 
 }
