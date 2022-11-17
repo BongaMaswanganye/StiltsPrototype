@@ -42,7 +42,7 @@ public class Lever : MonoBehaviour
             {
                 return ForwardBackwardTilt;
             }
-            Debug.Log("issue in calculation");
+            Debug.Log("roughly zero");
             return 0;
 
         }
