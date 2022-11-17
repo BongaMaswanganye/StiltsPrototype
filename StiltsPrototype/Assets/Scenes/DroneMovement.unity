@@ -450,11 +450,12 @@ MonoBehaviour:
   BaseMoveSpeed: 2
   BaseTurnSpeed: 2
   RotationalLever: {fileID: 0}
-  ForwardMovementLever: {fileID: 0}
+  DirectionalLever: {fileID: 0}
   DroneState: 0
+  MaxSpeed: 0
   AccelerationRate: 0
-  UpperLimit: 0
-  LowerLimit: 0
+  UpperLeverLimit: 0
+  LowerLeverLimit: 0
 --- !u!1001 &357752302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2268,13 +2269,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Drone: {fileID: 1424961146}
   BaseMoveSpeed: 2
-  BaseTurnSpeed: 2
+  BaseTurnSpeed: 30
   RotationalLever: {fileID: 934891173}
-  ForwardMovementLever: {fileID: 1441894483}
+  DirectionalLever: {fileID: 1441894483}
   DroneState: 1
+  MaxSpeed: 10
   AccelerationRate: 0.25
-  UpperLimit: 5
-  LowerLimit: -5
+  UpperLeverLimit: 5
+  LowerLeverLimit: 5
 --- !u!1 &1441894482
 GameObject:
   m_ObjectHideFlags: 0
