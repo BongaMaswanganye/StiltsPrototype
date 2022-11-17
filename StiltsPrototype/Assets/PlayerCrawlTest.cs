@@ -8,12 +8,13 @@ public class PlayerCrawlTest : MonoBehaviour
 {
     public SteamVR_Action_Vector2 input;
     public SteamVR_Action_Boolean grabGripAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabGrip");
-    public float moveSpeed = 5;
+    public float moveSpeed = 1;
     public Transform currentPlayerPos;
     public GameObject righthandPosition;
     
 
     Vector3 rightHandPosVector;
+    //Vector3 crawlingDistance;
     private CharacterController characterController;
 
     // Start is called before the first frame update
@@ -27,19 +28,26 @@ public class PlayerCrawlTest : MonoBehaviour
     void Update()
     {
         rightHandPosVector = righthandPosition.transform.position;
-        ClawlingAction();
+        CrawlingAction();
         TrackPadMoving();
     }
-    
-    public void ClawlingAction()
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawCube(crawlingDistance, Vector3.one);
+    //}
+
+    public void CrawlingAction()
     {
-        if(grabGripAction.GetStateDown(SteamVR_Input_Sources.RightHand))// get the input down from right hand grip
+        if(grabGripAction.GetState(SteamVR_Input_Sources.Any))// get the input down from right hand grip
         {
-            Vector3 crawlingDir = (rightHandPosVector - currentPlayerPos.transform.position).normalized;//getting the crawling direction
+            
+            Vector3 crawlingDir = (rightHandPosVector - transform.position).normalized;//getting the crawling direction
             characterController.Move(crawlingDir * moveSpeed * Time.deltaTime); // crawling
+            //crawlingDistance = crawlingDir;
             //Vector3 direction = Player.instance.hmdTransform.TransformDirection(rightHandPosVector);
             //characterController.Move(moveSpeed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up));
-            Debug.Log("ClawlingWork");
+            Debug.Log("CrawlingWorked");
             
 
         }
