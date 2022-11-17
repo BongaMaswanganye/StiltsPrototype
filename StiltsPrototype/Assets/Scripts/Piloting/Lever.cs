@@ -13,9 +13,9 @@ public class Lever : MonoBehaviour
     public string PlayerHandTag;
 
     //for later
-    public SteamVR_Input RequiredInput;
-    
+    public SteamVR_Action_Boolean Grab;
 
+    public bool requireGrabPress;
 
     // Start is called before the first frame update
     void Start()
