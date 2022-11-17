@@ -5,6 +5,12 @@ using Valve.VR;
 
 public class Lever : MonoBehaviour
 {
+    //if all else fails we could get just the state and accelerate it forward/backward
+    public enum LeverState{
+        Forward,
+        Backward,
+        Zero
+    }
     //make sure to lock joystick handle on z and y axis
     public GameObject JoyStickHandle;
 
@@ -12,6 +18,7 @@ public class Lever : MonoBehaviour
     
     public string PlayerHandTag;
 
+    public LeverState CurrentRead;
     //for later
     public SteamVR_Action_Boolean Grab;
 
@@ -35,16 +42,21 @@ public class Lever : MonoBehaviour
         {
             if (ForwardBackwardTilt < 360 && ForwardBackwardTilt > 290)
             {
-                ForwardBackwardTilt = Mathf.Abs(ForwardBackwardTilt-360);
+                //keep in postive range between 1,10
+                ForwardBackwardTilt = Mathf.Abs(ForwardBackwardTilt-360) / 10;
                 Debug.Log("Reading Angle from lever: " + ForwardBackwardTilt);
                 return ForwardBackwardTilt;
             }
-            else if (ForwardBackwardTilt> 0 && ForwardBackwardTilt < 74)
+            else if (ForwardBackwardTilt> 4 && ForwardBackwardTilt < 74)
             {
+                //keep in - range between 1 and 10
+                CurrentRead = LeverState.Backward;
+                ForwardBackwardTilt = ForwardBackwardTilt / 10;
                 Debug.Log("Reading Angle from lever: " + ForwardBackwardTilt);
                 return ForwardBackwardTilt;
             }
-            Debug.Log("roughly zero");
+            CurrentRead = 0;
+            Debug.Log("Reading Angle from lever: roughly zero");
             return 0;
 
         }

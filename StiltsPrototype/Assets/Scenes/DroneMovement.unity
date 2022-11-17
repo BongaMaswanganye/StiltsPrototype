@@ -452,6 +452,9 @@ MonoBehaviour:
   RotationalLever: {fileID: 0}
   ForwardMovementLever: {fileID: 0}
   DroneState: 0
+  AccelerationRate: 0
+  UpperLimit: 0
+  LowerLimit: 0
 --- !u!1 &341857228
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +567,7 @@ MonoBehaviour:
   JoyStickHandle: {fileID: 341857228}
   ForwardBackwardTilt: 0
   PlayerHandTag: PlayerHand
+  CurrentRead: 0
   Grab:
     actionPath: 
     needsReinit: 0
@@ -1256,6 +1260,7 @@ MonoBehaviour:
   JoyStickHandle: {fileID: 696460923}
   ForwardBackwardTilt: 0
   PlayerHandTag: PlayerHand
+  CurrentRead: 0
   Grab:
     actionPath: 
     needsReinit: 0
@@ -1410,7 +1415,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719106562}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -2595,7 +2600,10 @@ MonoBehaviour:
   BaseTurnSpeed: 2
   RotationalLever: {fileID: 696460928}
   ForwardMovementLever: {fileID: 1441894483}
-  DroneState: 0
+  DroneState: 1
+  AccelerationRate: 0.5
+  UpperLimit: 10
+  LowerLimit: -10
 --- !u!1 &1441894482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,6 +2637,7 @@ MonoBehaviour:
   JoyStickHandle: {fileID: 941014766}
   ForwardBackwardTilt: 0
   PlayerHandTag: PlayerHand
+  CurrentRead: 0
   Grab:
     actionPath: 
     needsReinit: 0
